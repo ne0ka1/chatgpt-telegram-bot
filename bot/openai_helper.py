@@ -27,8 +27,9 @@ GPT_4_VISION_MODELS = ("gpt-4o",)
 GPT_4_128K_MODELS = ("gpt-4-1106-preview", "gpt-4-0125-preview", "gpt-4-turbo-preview", "gpt-4-turbo", "gpt-4-turbo-2024-04-09")
 GPT_4O_MODELS = ("gpt-4o", "gpt-4o-mini", "chatgpt-4o-latest")
 O_MODELS = ("o1", "o1-mini", "o1-preview")
-GPT_41_MODELS = ("gpt-4.1")
-GPT_ALL_MODELS = GPT_3_MODELS + GPT_3_16K_MODELS + GPT_4_MODELS + GPT_4_32K_MODELS + GPT_4_VISION_MODELS + GPT_4_128K_MODELS + GPT_4O_MODELS + O_MODELS + GPT_41_MODELS
+GPT_41_MODELS = ("gpt-4.1",)
+GPT_5_MODELS = ("gpt-5", "gpt-5.1", "gpt-5.2", "gpt-5.4")
+GPT_ALL_MODELS = GPT_3_MODELS + GPT_3_16K_MODELS + GPT_4_MODELS + GPT_4_32K_MODELS + GPT_4_VISION_MODELS + GPT_4_128K_MODELS + GPT_4O_MODELS + O_MODELS + GPT_41_MODELS + GPT_5_MODELS
 
 def default_max_tokens(model: str) -> int:
     """
@@ -55,8 +56,8 @@ def default_max_tokens(model: str) -> int:
         return 4096
     elif model in O_MODELS:
         return 4096
-    elif model in GPT_41_MODELS:
-        return base * 8
+    else:
+        return 4096
 
 
 def are_functions_available(model: str) -> bool:
