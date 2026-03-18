@@ -56,7 +56,9 @@ def default_max_tokens(model: str) -> int:
         return 4096
     elif model in O_MODELS:
         return 4096
-    else:
+    elif model in GPT_41_MODELS:
+        return 4096
+    elif model in GPT_5_MODELS:
         return 4096
 
 
