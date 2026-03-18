@@ -638,6 +638,10 @@ class OpenAIHelper:
             return base * 31
         if self.config['model'] in GPT_4O_MODELS:
             return base * 31
+        if self.config['model'] in GPT_41_MODELS:
+            return base * 31
+        if self.config['model'] in GPT_5_MODELS:
+            return base * 31
         elif self.config['model'] in O_MODELS:
             # https://platform.openai.com/docs/models#o1
             if self.config['model'] == "o1":
